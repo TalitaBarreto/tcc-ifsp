@@ -1,0 +1,7 @@
+cores site tcc
+#e5e5e9
+#b8d7d5
+#73c0b0
+#4b908e
+#316064
+#dcd8c5
