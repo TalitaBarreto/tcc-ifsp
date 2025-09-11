@@ -17,13 +17,14 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav" style="justify-content: flex-end;">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link colorLinkMenu" href="home.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link colorLinkMenu" href="porque.php">Por quê?</a></li>
                     <li class="nav-item"><a class="nav-link colorLinkMenu" href="projetos.php">Projetos</a></li>
-                    <li class="nav-item"><a class="nav-link colorLinkMenu" href="projetos.php">Cadastro Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link colorLinkMenu" href="cadastro-projetos.php">Cadastro Projetos</a></li>
                     <li class="nav-item"><a class="nav-link colorLinkMenu" href="cadastro-investidores.php">Cadastre-se Investidores</a></li>
+                    <li class="nav-item"><a class="nav-link colorLinkMenu" href="login.php">Login</a></li>
                 </ul>
             </div>
         </div>

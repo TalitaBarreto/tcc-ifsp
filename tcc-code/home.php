@@ -36,21 +36,21 @@
     <section class="row espaco-entre-secao">
         <div class="col-md-6">           
             <div class="card">
-                <img class="card-img-top" src="img/projetos-ambientais.jpg" alt="Imagem de capa do card">
+                <img class="card-img-top" src="img/projeto.jpg" alt="Imagem de capa do card">
                 <div class="card-body">
                     <h5 class="card-title">Invista no Futuro</h5>
                     <p class="card-text">Apoie projetos socioambientais e aproveite incentivos fiscais.</p>
-                    <a href="#" class="btn btn-primary">Saiba Mais</a>
+                    <a href="porque.php" class="btn btn-primary">Saiba Mais</a>
                 </div>
             </div>
         </div>
         <div class="col-md-6">           
             <div class="card">
-                <img class="card-img-top" src="img/projeto-educacao-ambiental.jpg" alt="Imagem de capa do card">
+                <img class="card-img-top" src="img/reciclagem1.jpg" alt="Imagem de capa do card">
                 <div class="card-body">
                     <h5 class="card-title">Tem uma Ideia Transformadora?</h5>
                     <p class="card-text">Cadastre seu projeto e conecte-se com investidores.</p>
-                    <a href="#" class="btn btn-primary">Cadastre-se</a>
+                    <a href="cadastro-projetos.php" class="btn btn-primary">Cadastre-se</a>
                 </div>
             </div>
         </div>
@@ -58,13 +58,13 @@
     </section>
     <section class="mt-5">
         <h2>Projetos em Destaque</h2>
-        <div class="row">
+        <div class="row">            
             <div class="col-md-4">
                 <div class="card">
                     <img class="card-img-top" src="img/projetos-ambientais.jpg" alt="Imagem de capa do card">
                     <div class="card-body">
                         <h5 class="card-title">Projeto 1</h5>
-                        <p class="card-text">Descrição do projeto.</p>
+                        <p class="card-text">Descrição do Projeto 1</p>
                         <a href="#" class="btn btn-primary">Conheça</a>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                     <img class="card-img-top" src="img/projetos-ambientais.jpg" alt="Imagem de capa do card">
                     <div class="card-body">
                         <h5 class="card-title">Projeto 2</h5>
-                        <p class="card-text">Descrição do projeto.</p>
+                        <p class="card-text">Descrição do Projeto 2</p>
                         <a href="#" class="btn btn-primary">Conheça</a>
                     </div>
                 </div>
@@ -84,11 +84,11 @@
                     <img class="card-img-top" src="img/projetos-ambientais.jpg" alt="Imagem de capa do card">
                     <div class="card-body">
                         <h5 class="card-title">Projeto 3</h5>
-                        <p class="card-text">Descrição do projeto.</p>
+                        <p class="card-text">Descrição do Projeto 3</p>
                         <a href="#" class="btn btn-primary">Conheça</a>
                     </div>
                 </div>
-            </div>
+            </div>            
         </div>
         <div class="container">
             <div class="row justify-content-center">
