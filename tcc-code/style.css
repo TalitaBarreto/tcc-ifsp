@@ -200,3 +200,49 @@ a:hover{
     color: #666;
     margin-top: 5px;
 }
+
+.espaco-login{
+    margin-top: 80px;
+    margin-bottom: 194px;
+}
+/* Hero Section */
+.hero {
+  background: #888;
+  color: white;
+  padding: 80px 20px;
+  text-align: left;
+}
+.hero h1 { font-weight: 700; }
+
+/* Seção do Projeto */
+.section-title {
+  font-weight: 700;
+  margin: 40px 0 20px;
+}
+.project-images img {
+  width: 100%;
+  height: 200px;
+  background: #ccc;
+}
+
+/* Call to action */
+.cta-phone {
+  background: #eee;
+  padding: 20px 0; /* só padding vertical */
+}
+.cta-phone .phone-box {
+  background: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+}
+.cta-phone .phone-box i {
+  font-size: 24px;
+}
+.cta-phone h3 {
+  font-weight: 700;
+  text-align: right;
+  margin: 0;
+}

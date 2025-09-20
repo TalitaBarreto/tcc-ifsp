@@ -43,42 +43,42 @@
         </div>
     </section>
     <section class="row espaco-entre-secao" id="cadastroInvestidor">
-        <form class="row g-3 formulario" id="uploadForm">
+        <form class="row g-3 formulario" id="uploadForm" action="db.php" method="post">
             <div class="col-md-12">
                 <h3>Cadastro de Investidores</h3>
             </div>
             <div class="col-md-5">
                 <label for="inputNomeInvestidor" class="form-label">Nome do Investidor</label>
-                <input type="text" class="form-control" id="inputNomeInvestidor" placeholder="Digite o nome do investidor">
+                <input type="text" class="form-control" id="inputNomeInvestidor" name="inputNomeInvestidor" placeholder="Digite o nome do investidor">
             </div>
             <div class="col-md-5">
                 <label for="inputEmailInvestidor" class="form-label">Email do Investidor</label>
-                <input type="email" class="form-control" id="inputEmailInvestidor"
+                <input type="email" class="form-control" id="inputEmailInvestidor" name="inputEmailInvestidor"
                     placeholder="Digite o email do investidor">
             </div>
             <div class="col-md-2">
                 <label for="inputPassword" class="form-label">Senha</label>
-                <input type="password" class="form-control" id="inputPassword" placeholder="Digite uma senha">
+                <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Digite uma senha">
             </div>
             <div class="col-md-6">
                 <label for="inputRua" class="form-label">Rua</label>
-                <input type="text" class="form-control" id="inputRua" placeholder="Digite o nome da rua">
+                <input type="text" class="form-control" id="inputRua" name="inputRua" placeholder="Digite o nome da rua">
             </div>
             <div class="col-md-2">
                 <label for="inputNum" class="form-label">Número</label>
-                <input type="text" class="form-control" id="inputNum" placeholder="Digite o número">
+                <input type="text" class="form-control" id="inputNum" name="inputNum" placeholder="Digite o número">
             </div>
             <div class="col-md-2">
                 <label for="inputComplemento" class="form-label">Complemento</label>
-                <input type="text" class="form-control" id="inputComplemento" placeholder="Complemento">
+                <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" placeholder="Complemento">
             </div>
             <div class="col-md-2">
                 <label for="inputCEP" class="form-label">CEP:</label>
-                <input type="text" class="form-control" id="inputCEP" placeholder="Digite o CEP">
+                <input type="text" class="form-control" id="inputCEP" name="inputCEP" placeholder="Digite o CEP">
             </div>
             <div class="col-md-2">
                 <label for="inputCidade" class="form-label">Cidade</label><br>
-                <select id="inputCidade" class="form-select-cidade selecao">
+                <select id="inputCidade" name="inputCidade" class="form-select-cidade selecao">
                     <option selected>Campinas</option>
                     <option>Americana</option>
                     <option>Artur Nogueira</option>
@@ -151,7 +151,7 @@
             </div>
             <div class="col-md-2">
                 <label for="inputState" class="form-label">Estado</label><br>
-                <select id="inputState" class="form-select selecao">
+                <select id="inputState" name="inputState" class="form-select selecao">
                     <option selected>São Paulo</option>
                     <option>Acre</option>
                     <option>Alagoas</option>
@@ -183,7 +183,7 @@
             </div>
             <div class="col-md-3">
                 <label for="inputCategoria" class="form-label">Categoria de Interesse</label><br>
-                <select id="inputCategoria" class="form-select selecao">
+                <select id="inputCategoria" name="inputCategoria" class="form-select selecao">
                     <option selected>Educação Ambiental</option>
                     <option>Créditos de Carbono</option>
                     <option>Reflorestamento</option>
@@ -196,7 +196,7 @@
             </div>
             <div class="col-md-3">
                 <label for="inputFinanciamento" class="form-label">Tipo de Financiamento</label><br>
-                <select id="inputFinanciamento" class="form-select selecao">
+                <select id="inputFinanciamento" name="inputFinanciamento" class="form-select selecao">
                     <option selected>Coparticipativo</option>
                     <option>Privado</option>
                     <option>Público</option>
@@ -206,7 +206,7 @@
             </div>
             <div class="col-md-2">
                 <label for="inputValor" class="form-label">Valor a investir</label><br>
-                <select id="inputValor" class="form-select selecao">
+                <select id="inputValor" name="inputValor" class="form-select selecao">
                     <option selected>01 - 50 Mil</option>
                     <option>51 - 100 Mil</option>
                     <option>101 - 200 Mil</option>
@@ -224,5 +224,52 @@
 
     </section>
 </div>
+<!-- Modal Sucesso -->
+<div class="modal fade" id="modalSucesso" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title">Cadastro realizado!</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Seu cadastro de investidor foi concluído com sucesso!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Erro -->
+<div class="modal fade" id="modalErro" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title">Erro no cadastro</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Não foi possível concluir o cadastro. Tente novamente.</p>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<?php if (isset($_GET['sucesso']) && $_GET['sucesso'] == 1): ?>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var modalSucesso = new bootstrap.Modal(document.getElementById('modalSucesso'));
+        modalSucesso.show();
+    });
+</script>
+<?php elseif (isset($_GET['erro']) && $_GET['erro'] == 1): ?>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var modalErro = new bootstrap.Modal(document.getElementById('modalErro'));
+        modalErro.show();
+        // Limpa todos os campos do formulário
+        document.getElementById('uploadForm').reset();
+    });
+</script>
+<?php endif; ?>
 
 <?php include 'footer.php'; ?>

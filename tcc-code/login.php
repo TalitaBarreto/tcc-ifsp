@@ -1,28 +1,53 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Conectando Ideias</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<body>
-    <div class="container"> 
-        <section class="row espaco-entre-secao">
-            <div class="col-md-6">                
-                <form>
-                    <div class="mb-6">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" required>
+<?php include 'header.php'; ?>
+    <div class="container py-5 espaco-login">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-10">
+                <div class="card card-login p-4 p-md-5">
+                    <div class="row g-0">
+                        <!-- Login Apoiadores -->
+                        <div class="col-md-6 p-4">
+                            <h4 class="mb-4">Login Apoiadores</h4>
+                            <form action="login_apoiadores.php" method="post">
+                                <div class="mb-3">
+                                    <label for="apoio-email" class="form-label">E‑mail</label>
+                                    <input type="email" class="form-control" id="apoio-email" name="email"
+                                        placeholder="seu@exemplo.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="apoio-senha" class="form-label">Senha</label>
+                                    <input type="password" class="form-control" id="apoio-senha" name="senha"
+                                        placeholder="Senha" required>
+                                </div>
+                                <div class="d-grid">
+                                    <button class="btn btn-primary" type="submit">Entrar como Apoiador</button>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        <!-- Login Projetos -->
+                        <div class="col-md-6 p-4 divider-vertical">
+                            <h4 class="mb-4">Login Projetos</h4>
+                            <form action="login_projetos.php" method="post">
+                                <div class="mb-3">
+                                    <label for="proj-usuario" class="form-label">Usuário/Projeto</label>
+                                    <input type="text" class="form-control" id="proj-usuario" name="usuario"
+                                        placeholder="Nome do projeto" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="proj-senha" class="form-label">Senha</label>
+                                    <input type="password" class="form-control" id="proj-senha" name="senha"
+                                        placeholder="Senha" required>
+                                </div>
+                                <div class="d-grid">
+                                    <button class="btn btn-primary" type="submit">Entrar como Projeto</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="mb-6">
-                        <label for="senha" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="senha" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Entrar</button>
-                </form>
+                </div>
             </div>
-        </section>
+        </div>
     </div>
 </body>
+<?php include 'footer.php'; ?>
