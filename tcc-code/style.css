@@ -69,21 +69,31 @@ a:hover{
     
 }
 
+.card{
+    border-radius: 15px;
+}
+
 /* 1. Padroniza o Container (o Card) - Mantido */
-.card {
+.card-projeto {
     min-height: 480px; /* Ajusta se necessário */
     display: flex;
     flex-direction: column;
+    border-radius: 15px;
+    background-color: #fff;
+    padding: 10px;
+    
+   
 }
 
 /* 2. Padroniza a Altura da Imagem - Mantido */
-.card-img-top {
+.card-img-top-projeto {
     height: 200px;
+    border-radius: 15px 15px;
     object-fit: cover;
 }
 
 /* 3. Ajuste Principal: Controlar o Espaçamento do Card Body */
-.card-body {
+.card-body-projeto {
     /* Faz o card-body crescer para preencher o espaço restante */
     flex-grow: 1; 
     
@@ -95,26 +105,35 @@ a:hover{
     justify-content: flex-start;
     
     /* Remove a margem extra na parte inferior do card */
-    padding-bottom: 2rem; 
+    padding-bottom: 1rem; 
 }
 
 /* 4. Padroniza a Altura do Título - Mantido */
-.card-title {
+.card-title-projeto {
     height: 3rem; 
     overflow: hidden; 
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 /* 5. A Descrição (Card Text) deve apenas ocupar o espaço natural do texto */
-.card-text {
+.card-text-projeto {
     /* MUITO IMPORTANTE: Remove o flex-grow, para que o texto não se estique */
     flex-grow: 0;     
 }
 
 /* 6. Empurra o Botão para o Fundo - Esta é a técnica de alinhamento */
-.card-body .btn {
+.card-body-projeto .btn {
     /* MANTIDO: 'margin-top: auto' empurra o botão para o fundo do container Flexbox */
     margin-top: auto; 
     
+}
+
+.filtroCategoria{
+    background-color:#F5F5F5;
+    border: #888;
+    border-radius: 5px;
+    color: #888;
 }
 
 .imgSite{

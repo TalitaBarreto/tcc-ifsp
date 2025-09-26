@@ -57,7 +57,7 @@
         
     </section>
     <section class="mt-5">
-        <h2>Projetos em Destaque</h2>
+        <h2>Projetos recem cadastrados</h2>
         <div class="row">            
             <div class="col-md-4">
                 <div class="card">
