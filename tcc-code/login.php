@@ -4,10 +4,10 @@
             <div class="col-lg-10">
                 <div class="card card-login p-4 p-md-5">
                     <div class="row g-0">
-                        <!-- Login Apoiadores -->
+                        <!-- Login Investidores -->
                         <div class="col-md-6 p-4">
-                            <h4 class="mb-4">Login Apoiadores</h4>
-                            <form action="login_apoiadores.php" method="post">
+                            <h4 class="mb-4">Login Investidores</h4>
+                            <form action="login_investidores.php" method="post">
                                 <div class="mb-3">
                                     <label for="apoio-email" class="form-label">E‑mail</label>
                                     <input type="email" class="form-control" id="apoio-email" name="email"

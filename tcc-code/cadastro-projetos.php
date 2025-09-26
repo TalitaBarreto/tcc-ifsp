@@ -37,41 +37,41 @@
         </div>           
     </section>    
     <section class="row espaco-entre-secao" id="cadastroProjeto">
-        <form class="row g-3 formulario" id="uploadForm">
+        <form class="row g-3 formulario" id="uploadForm" action="db-projetos.php" method="POST" enctype="multipart/form-data">
             <div class="col-md-12">
                 <h3>Cadastro de Projetos</h3>
             </div>  
             <div class="col-md-5">
                 <label for="inputNomeProjeto" class="form-label">Nome do Projeto</label>
-                <input type="text" class="form-control" id="inputNomeProjeto" placeholder="Digite o nome do projeto">
+                <input type="text" class="form-control" id="inputNomeProjeto" name="nome_projeto" placeholder="Digite o nome do projeto">
             </div>
             <div class="col-md-5">
                 <label for="inputResponsavel" class="form-label">Nome do Responsávell</label>
-                <input type="text" class="form-control" id="inputResponsavel" placeholder="Digite o nome do responsável do projeto">
+                <input type="text" class="form-control" id="inputResponsavel" name="responsavel" placeholder="Digite o nome do responsável do projeto">
             </div>
             <div class="col-md-2">
                 <label for="inputPassword" class="form-label">Senha</label>
-                <input type="password" class="form-control" id="inputPassword" placeholder="Digite uma senha">
+                <input type="password" class="form-control" id="inputPassword" name="senha" placeholder="Digite uma senha">
             </div>
             <div class="col-md-6">
                 <label for="inputRua" class="form-label">Rua</label>
-                <input type="text" class="form-control" id="inputRua" placeholder="Digite o nome da rua">
+                <input type="text" class="form-control" id="inputRua" name="rua" placeholder="Digite o nome da rua">
             </div>
             <div class="col-md-2">
                 <label for="inputNum" class="form-label">Número</label>
-                <input type="text" class="form-control" id="inputNum" placeholder="Digite o número">
+                <input type="text" class="form-control" id="inputNum" name="numero" placeholder="Digite o número">
             </div>
             <div class="col-md-2">
                 <label for="inputComplemento" class="form-label">Complemento</label>
-                <input type="text" class="form-control" id="inputComplemento" placeholder="Complemento">
+                <input type="text" class="form-control" id="inputComplemento" name="complemento" placeholder="Complemento">
             </div>
             <div class="col-md-2">
                 <label for="inputCEP" class="form-label">CEP:</label>
-                <input type="text" class="form-control" id="inputCEP" placeholder="Digite o CEP">
+                <input type="text" class="form-control" id="inputCEP" name="cep" placeholder="Digite o CEP">
             </div>
             <div class="col-md-2">
                 <label for="inputCidade" class="form-label">Cidade</label><br>
-                <select id="inputCidade" class="form-select-cidade selecao">
+                <select id="inputCidade" name="cidade" class="form-select-cidade selecao">
                 <option selected>Campinas</option>
                 <option>Americana</option>
                 <option>Artur Nogueira</option>
@@ -144,7 +144,7 @@
             </div>
             <div class="col-md-2">
                 <label for="inputState" class="form-label">Estado</label><br>
-                <select id="inputState" class="form-select selecao">
+                <select id="inputState" name="estado" class="form-select selecao">
                 <option selected>São Paulo</option>
                 <option>Acre</option>
                 <option>Alagoas</option>
@@ -176,7 +176,7 @@
             </div> 
             <div class="col-md-3">
                 <label for="inputCategoria" class="form-label">Categoria</label><br>
-                <select id="inputCategoria" class="form-select selecao">
+                <select id="inputCategoria" name="categoria" class="form-select selecao">
                     <option selected>Educação Ambiental</option>
                     <option>Créditos de Carbono</option>
                     <option>Reflorestamento</option>
@@ -188,7 +188,7 @@
             </div>
             <div class="col-md-3">
                 <label for="inputFinanciamento" class="form-label">Tipo de Financiamento</label><br>
-                <select id="inputFinanciamento" class="form-select selecao">
+                <select id="inputFinanciamento" name="financiamento" class="form-select selecao">
                     <option selected>Coparticipativo</option>
                     <option>Privado</option>
                     <option>Público</option>
@@ -198,7 +198,7 @@
             </div>
              <div class="col-md-2">
                 <label for="inputValor" class="form-label">Valor Pretendido</label><br>
-                <select id="inputValor" class="form-select selecao">
+                <select id="inputValor" name="valor_pretendido" class="form-select selecao">
                     <option selected>01 - 50 Mil</option>
                     <option>51 - 100 Mil</option>
                     <option>101 - 200 Mil</option>
@@ -211,25 +211,25 @@
             </div>
             <div class="col-md-12">
                 <label for="inputDescricao" class="form-label">Descrição do Projeto</label><br>
-                <textarea class="form-control" placeholder="Faça a descrição do seu projeto" id="floatingTextarea"  style="height: 100px"></textarea>
+                <textarea class="form-control" placeholder="Faça a descrição do seu projeto" name="descricao" id="floatingTextarea"  style="height: 100px"></textarea>
             </div>
             <div class="col-md-3">
                 <label class="form-label">Escolha Imagem do seu Projeto</label>
-                <input type="file" id="imagem" class="d-none" accept="image/*" required></br>
+                <input type="file" id="imagem" class="d-none" name="imagem" accept="image/*" required></br>
                 <label for="imagem" class="btn btn-outline-secondary"><i class="fa-solid fa-file-image" style="margin-right: 10px; margin-left: 5px;"></i>Escolher Imagem</label></br>
                 <span id="nomeArquivo" class="ms-2 text-muted">Nenhum arquivo selecionado</span>
             </div>
             <div class="col-md-3">
                 <label for="inputInstagram" class="form-label">Coloque aqui seu Instagram</label>
-                <input type="text" class="form-control" id="inputInstagram" placeholder="Instagram">
+                <input type="text" class="form-control" name="instagram" id="inputInstagram" placeholder="Instagram">
             </div>
             <div class="col-md-3">
                 <label for="inputFacebook" class="form-label">Coloque aqui seu Facebook</label>
-                <input type="text" class="form-control" id="inputFacebook" placeholder="Facebook">
+                <input type="text" class="form-control" name="facebook" id="inputFacebook" placeholder="Facebook">
             </div>
             <div class="col-md-3">
                 <label for="inputLinkedIn" class="form-label">Coloque aqui seu LinkedIn</label>
-                <input type="text" class="form-control" id="inputLinkedIn" placeholder="LinkedIn">
+                <input type="text" class="form-control" name="linkedin" id="inputLinkedIn" placeholder="LinkedIn">
             </div>
             <div class="col-md-3">
                 <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Cadastrar</button>
@@ -239,51 +239,65 @@
     </section>
 </div>
 
+<!-- Modal Sucesso -->
+<div class="modal fade" id="modalSucesso" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title">Cadastro realizado!</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Seu projeto foi cadastrado com sucesso!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Erro -->
+<div class="modal fade" id="modalErro" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title">Erro no cadastro</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Não foi possível concluir o cadastro. Tente novamente.</p>
+        <div id="erro_msg_detalhada" class="alert alert-warning mt-3" style="font-size: 0.9em; text-align: left;"></div>
+      </div>      
+    </div>
+  </div>
+</div>
+
+
+
+
+<?php 
+// Coleta a mensagem de erro da URL, se existir, e decodifica
+$erro_msg_url = isset($_GET['erro']) ? htmlspecialchars(urldecode($_GET['erro'])) : '';
+?>
+
+<?php if (isset($_GET['sucesso']) && $_GET['sucesso'] == 1): ?>
 <script>
-    const imagemInput = document.getElementById('imagem');
-    const nomeArquivo = document.getElementById('nomeArquivo');
-    const preview = document.getElementById('preview');
-    const progressBar = document.getElementById('progressBar');
-    const uploadForm = document.getElementById('uploadForm');
-
-    // Mostrar nome do arquivo e pré-visualização
-    imagemInput.addEventListener('change', function() {
-        if (this.files.length > 0) {
-            nomeArquivo.textContent = this.files[0].name;
-
-            const reader = new FileReader();
-            reader.onload = e => {
-                preview.src = e.target.result;
-                preview.style.display = 'block';
-            };
-            reader.readAsDataURL(this.files[0]);
-        } else {
-            nomeArquivo.textContent = 'Nenhum arquivo selecionado';
-            preview.style.display = 'none';
-        }
-    });
-
-    // Simular envio com barra de progresso
-    uploadForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        progressBar.style.width = '0%';
-        progressBar.textContent = '0%';
-
-        let progresso = 0;
-        const intervalo = setInterval(() => {
-            if (progresso >= 100) {
-                clearInterval(intervalo);
-                progressBar.classList.remove('bg-success');
-                progressBar.classList.add('bg-info');
-                progressBar.textContent = 'Imagem enviada com sucesso!';
-            } else {
-                progresso += 10;
-                progressBar.style.width = progresso + '%';
-                progressBar.textContent = progresso + '%';
-            }
-        }, 200);
+    document.addEventListener("DOMContentLoaded", function() {
+        var modalSucesso = new bootstrap.Modal(document.getElementById('modalSucesso'));
+        modalSucesso.show();
     });
 </script>
+<?php elseif (isset($_GET['erro'])): ?> 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Exibe a mensagem de erro do banco de dados no modal
+        document.getElementById('erro_msg_detalhada').textContent = 'Detalhe: <?php echo $erro_msg_url; ?>';
+        
+        var modalErro = new bootstrap.Modal(document.getElementById('modalErro'));
+        modalErro.show();
+        
+        // Limpa todos os campos do formulário
+        document.getElementById('uploadForm').reset();
+    });
+</script>
+<?php endif; ?>
 
 <?php include 'footer.php'; ?>

@@ -17,7 +17,7 @@
 
     <ul>
         <li>Responsável</li>
-        <li>Tipo de projeto</li>
+        <li>Categoria</li>
         <li>Objetivo: R$50.000,00</li>
     </ul>
 
@@ -54,18 +54,6 @@
         Ut lacinia semper porttitor. Phasellus a suscipit sem. Nam ut ligula arcu.</p>
 </section>
 
-<!-- Call to action phone -->
-<section class="cta-phone">
-    <div class="container d-flex flex-wrap justify-content-between align-items-center">
-        <div class="phone-box">
-            <i class="bi bi-telephone"></i>
-            <div>
-                <strong>CHAMAR AGORA</strong><br>
-                (+55) 19 0000-0000
-            </div>
-        </div>
-        <h3>SE TIVER ALGUMA DÚVIDA?<br>NOS LIGUE!</h3>
-    </div>
-</section>
+
 
 <?php include 'footer.php'; ?>
