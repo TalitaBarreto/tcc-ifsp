@@ -43,23 +43,23 @@
             </div>               
             <div class="col-md-5">
                 <label for="inputNomeProjeto" class="form-label">Nome do Projeto</label>
-                <input type="text" class="form-control" id="inputNomeProjeto" name="nome_projeto" placeholder="Digite o nome do projeto">
+                <input type="text" class="form-control" id="inputNomeProjeto" name="nome_projeto" placeholder="Digite o nome do projeto" required>
             </div>
             <div class="col-md-5">
                 <label for="inputResponsavel" class="form-label">Nome do Responsávell</label>
-                <input type="text" class="form-control" id="inputResponsavel" name="responsavel" placeholder="Digite o nome do responsável do projeto">
+                <input type="text" class="form-control" id="inputResponsavel" name="responsavel" placeholder="Digite o nome do responsável do projeto" required>
             </div>
             <div class="col-md-2">
                 <label for="inputPassword" class="form-label">Senha</label>
-                <input type="password" class="form-control" id="inputPassword" name="senha" placeholder="Digite uma senha">
+                <input type="password" class="form-control" id="inputPassword" name="senha" placeholder="Digite uma senha" required>
             </div>
             <div class="col-md-6">
                 <label for="inputRua" class="form-label">Rua</label>
-                <input type="text" class="form-control" id="inputRua" name="rua" placeholder="Digite o nome da rua">
+                <input type="text" class="form-control" id="inputRua" name="rua" placeholder="Digite o nome da rua" required>
             </div>
             <div class="col-md-2">
                 <label for="inputNum" class="form-label">Número</label>
-                <input type="text" class="form-control" id="inputNum" name="numero" placeholder="Digite o número">
+                <input type="text" class="form-control" id="inputNum" name="numero" placeholder="Digite o número" required>
             </div>
             <div class="col-md-2">
                 <label for="inputComplemento" class="form-label">Complemento</label>
@@ -67,11 +67,11 @@
             </div>
             <div class="col-md-2">
                 <label for="inputCEP" class="form-label">CEP:</label>
-                <input type="text" class="form-control" id="inputCEP" name="cep" placeholder="Digite o CEP">
+                <input type="text" class="form-control" id="inputCEP" name="cep" placeholder="Digite o CEP" required>
             </div>
             <div class="col-md-2">
                 <label for="inputCidade" class="form-label">Cidade</label><br>
-                <select id="inputCidade" name="cidade" class="form-select-cidade selecao">
+                <select id="inputCidade" name="cidade" class="form-select-cidade selecao" required>
                 <option selected>Campinas</option>
                 <option>Americana</option>
                 <option>Artur Nogueira</option>
@@ -144,7 +144,7 @@
             </div>
             <div class="col-md-2">
                 <label for="inputState" class="form-label">Estado</label><br>
-                <select id="inputState" name="estado" class="form-select selecao">
+                <select id="inputState" name="estado" class="form-select selecao" required>
                 <option selected>São Paulo</option>
                 <option>Acre</option>
                 <option>Alagoas</option>
@@ -176,7 +176,7 @@
             </div> 
             <div class="col-md-3">
                 <label for="inputCategoria" class="form-label">Categoria</label><br>
-                <select id="inputCategoria" name="categoria" class="form-select selecao">
+                <select id="inputCategoria" name="categoria" class="form-select selecao" required>
                     <option selected>Educação Ambiental</option>
                     <option>Créditos de Carbono</option>
                     <option>Reflorestamento</option>
@@ -188,7 +188,7 @@
             </div>
             <div class="col-md-3">
                 <label for="inputFinanciamento" class="form-label">Tipo de Financiamento</label><br>
-                <select id="inputFinanciamento" name="financiamento" class="form-select selecao">
+                <select id="inputFinanciamento" name="financiamento" class="form-select selecao" required>
                     <option selected>Coparticipativo</option>
                     <option>Privado</option>
                     <option>Público</option>
@@ -198,7 +198,7 @@
             </div>
              <div class="col-md-2">
                 <label for="inputValor" class="form-label">Valor Pretendido</label><br>
-                <select id="inputValor" name="valor_pretendido" class="form-select selecao">
+                <select id="inputValor" name="valor_pretendido" class="form-select selecao" required>
                     <option selected>01 - 50 Mil</option>
                     <option>51 - 100 Mil</option>
                     <option>101 - 200 Mil</option>
@@ -211,7 +211,7 @@
             </div>
             <div class="col-md-12">
                 <label for="inputDescricao" class="form-label">Descrição do Projeto</label><br>
-                <textarea class="form-control" placeholder="Faça a descrição do seu projeto" name="descricao" id="floatingTextarea"  style="height: 100px"></textarea>
+                <textarea class="form-control" placeholder="Faça a descrição do seu projeto" name="descricao" id="floatingTextarea"  style="height: 100px" required></textarea>
             </div>
             <div class="col-md-3">
                 <label class="form-label">Escolha Imagem do seu Projeto</label>
@@ -221,15 +221,15 @@
             </div>
             <div class="col-md-3">
                 <label for="inputInstagram" class="form-label">Coloque aqui seu Instagram</label>
-                <input type="text" class="form-control" name="instagram" id="inputInstagram" placeholder="Instagram">
+                <input type="text" class="form-control" name="instagram" id="inputInstagram" placeholder="Instagram" required>
             </div>
             <div class="col-md-3">
-                <label for="inputFacebook" class="form-label">Coloque aqui seu Facebook</label>
-                <input type="text" class="form-control" name="facebook" id="inputFacebook" placeholder="Facebook">
+                <label for="inputFacebook" class="form-label">Coloque aqui seu WhatsApp</label>
+                <input type="text" class="form-control" name="facebook" id="inputFacebook" placeholder="WhatsApp" required>
             </div>
             <div class="col-md-3">
                 <label for="inputLinkedIn" class="form-label">Coloque aqui seu LinkedIn</label>
-                <input type="text" class="form-control" name="linkedin" id="inputLinkedIn" placeholder="LinkedIn">
+                <input type="text" class="form-control" name="linkedin" id="inputLinkedIn" placeholder="LinkedIn" required>
             </div>
             <div class="col-md-3">
                 <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Cadastrar</button>
@@ -272,10 +272,6 @@
     </div>
   </div>
 </div>
-
-
-
-
 <?php 
 // Coleta a mensagem de erro da URL, se existir, e decodifica
 $erro_msg_url = isset($_GET['erro']) ? htmlspecialchars(urldecode($_GET['erro'])) : '';
@@ -323,4 +319,64 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById('uploadForm');
+    const modalErro = new bootstrap.Modal(document.getElementById('modalErro'));
+    const erroMsg = document.getElementById('erro_msg_detalhada');
+
+    const camposObrigatorios = [
+        {id: 'inputNomeProjeto', nome: 'Nome do Projeto'},
+        {id: 'inputResponsavel', nome: 'Nome do Responsável'},
+        {id: 'inputPassword', nome: 'Senha'},
+        {id: 'inputRua', nome: 'Rua'},
+        {id: 'inputNum', nome: 'Número'},
+        {id: 'inputCEP', nome: 'CEP'},
+        {id: 'inputCidade', nome: 'Cidade'},
+        {id: 'inputState', nome: 'Estado'},
+        {id: 'inputCategoria', nome: 'Categoria'},
+        {id: 'inputFinanciamento', nome: 'Tipo de Financiamento'},
+        {id: 'inputValor', nome: 'Valor Pretendido'},
+        {id: 'floatingTextarea', nome: 'Descrição do Projeto'},
+        {id: 'imagem', nome: 'Imagem do Projeto'},
+        {id: 'instagram', nome: 'Instagram'},
+        {id: 'facebook', nome: 'WhatsApp'},
+        {id: 'linkedin', nome: 'Linkedin'}
+    ];
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // evita envio enquanto valida
+        let erros = [];
+
+        camposObrigatorios.forEach(function(campoInfo) {
+            const campo = document.getElementById(campoInfo.id);
+            let preenchido = true;
+
+            if (campo.tagName === 'SELECT') {
+                preenchido = campo.value.trim() !== '';
+            } else if (campo.type === 'file') {
+                preenchido = campo.files.length > 0;
+            } else {
+                preenchido = campo.value.trim() !== '';
+            }
+
+            if (!preenchido) {
+                erros.push(campoInfo.nome);
+                campo.classList.add('is-invalid');
+            } else {
+                campo.classList.remove('is-invalid');
+            }
+        });
+
+        if (erros.length > 0) {
+            // Monta a mensagem de erro
+            erroMsg.innerHTML = `<strong>Por favor, preencha os seguintes campos obrigatórios:</strong><ul><li>${erros.join('</li><li>')}</li></ul>`;
+            modalErro.show();
+        } else {
+            // Se tudo preenchido, envia o formulário
+            form.submit();
+        }
+    });
+});
+
 </script>
