@@ -112,7 +112,7 @@ $resultProjetos = $conn->query($sqlProjetos);
                                 
                                 <p class="card-text-projeto"><?php echo htmlspecialchars($descricao_limitada); ?></p>
                                 
-                                <a href="#" class="btn btn-primary">Conheça</a>
+                                <a href="descricao-projeto.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Conheça</a>
                             </div>
                         </div>
                     </div>

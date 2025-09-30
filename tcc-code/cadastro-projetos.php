@@ -40,7 +40,7 @@
         <form class="row g-3 formulario" id="uploadForm" action="db-projetos.php" method="POST" enctype="multipart/form-data">
             <div class="col-md-12">
                 <h3>Cadastro de Projetos</h3>
-            </div>  
+            </div>               
             <div class="col-md-5">
                 <label for="inputNomeProjeto" class="form-label">Nome do Projeto</label>
                 <input type="text" class="form-control" id="inputNomeProjeto" name="nome_projeto" placeholder="Digite o nome do projeto">
@@ -234,6 +234,9 @@
             <div class="col-md-3">
                 <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Cadastrar</button>
             </div>
+            <div class="col-md-12">
+                <p style="margin-top: 10px; color:crimson">*Todos os campos são necessários para o cadastro, menos o COMPLEMENTO que é opcional*</p>
+            </div> 
         </form>
 
     </section>
@@ -298,6 +301,26 @@ $erro_msg_url = isset($_GET['erro']) ? htmlspecialchars(urldecode($_GET['erro'])
         document.getElementById('uploadForm').reset();
     });
 </script>
+
+
+</script>
 <?php endif; ?>
 
 <?php include 'footer.php'; ?>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const inputArquivo = document.getElementById('imagem'); // input
+    const nomeArquivo = document.getElementById('nomeArquivo'); // span
+
+    if (inputArquivo && nomeArquivo) {
+        inputArquivo.addEventListener('change', () => {
+            if (inputArquivo.files.length > 0) {
+                nomeArquivo.textContent = inputArquivo.files[0].name;
+            } else {
+                nomeArquivo.textContent = "Nenhum arquivo selecionado";
+            }
+        });
+    }
+});
+</script>

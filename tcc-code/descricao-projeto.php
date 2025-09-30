@@ -1,59 +1,72 @@
-<?php include 'header.php'; ?>
+<?php 
+include 'header.php'; 
+include 'db-projetos.php'; // conexão com o banco
+?>
 
-<!-- Hero -->
+<?php
+// Passo 1 - Obter o ID do projeto da URL
+$projeto_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$projeto = null;
+
+// Passo 2 - Buscar o projeto no banco
+if ($projeto_id > 0) {
+    $id_seguro = $conn->real_escape_string($projeto_id);
+    $sql = "SELECT * FROM projetos WHERE id = '{$id_seguro}'";
+    $result = $conn->query($sql);
+
+    if ($result && $result->num_rows > 0) {
+        $projeto = $result->fetch_assoc();
+    }
+}
+
+// Caso não encontre nada
+if (!$projeto) {
+    echo '<div class="container my-5 text-center">
+            <h1>Projeto Não Encontrado</h1>
+            <p>O ID do projeto é inválido ou ele não existe mais.</p>
+          </div>';
+    if (isset($conn)) { $conn->close(); }
+    include 'footer.php';
+    exit;
+}
+?>
+
 <section class="hero">
     <div class="container">
-        <h1>PROJETOS 1</h1>
-        <p>Conheça os projetos, e escolha o que mais tem haver com seu negócio</p>
+        <h1><?php echo htmlspecialchars($projeto['nome_projeto']); ?></h1>
+        <p>Conheça os detalhes do projeto e veja como ele pode gerar impacto real.</p>
     </div>
 </section>
 
-<!-- Conheça nosso projeto -->
-<section class="container">
+<section class="container my-5">
     <h2 class="section-title">CONHEÇA O NOSSO PROJETO</h2>
+    
     <div class="row project-images mb-4">
-        <img src="" alt="Projeto">
+        <?php if (!empty($projeto['imagem'])): ?>
+            <img style="height: 100%;" src="<?php echo htmlspecialchars($projeto['imagem']); ?>" alt="Imagem do projeto <?php echo htmlspecialchars($projeto['nome_projeto']); ?>" class="img-fluid rounded">
+        <?php else: ?>
+            <img src="img/placeholder.jpg" alt="Sem imagem disponível" class="img-fluid rounded">
+        <?php endif; ?>
     </div>
 
-    <ul>
-        <li>Responsável</li>
-        <li>Categoria</li>
-        <li>Objetivo: R$50.000,00</li>
+    <ul class="list-unstyled project-details">
+        <li><strong>Responsável:</strong> <?php echo htmlspecialchars($projeto['responsavel']); ?></li>
+        <li><strong>Categoria:</strong> <?php echo htmlspecialchars($projeto['categoria']); ?></li>
+        <li><strong>Objetivo:</strong> 
+            R$ <?php echo number_format((float)$projeto['valor_pretendido'], 3, '.', '.'); ?>
+        </li>
     </ul>
 
+    <div class="project-description mt-3">
+        <?php echo nl2br(htmlspecialchars($projeto['descricao'])); ?>
+    </div>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas commodo erat nec magna suscipit fermentum.
-        Morbi pellentesque tempor neque nec sodales. Phasellus ac ex at urna feugiat dictum. Morbi finibus hendrerit
-        dignissim. Sed eleifend pellentesque elementum. Morbi lacinia diam ac tortor vehicula rutrum. Aenean ut nunc sit
-        amet arcu viverra congue. Pellentesque consequat eu nisl id eleifend. Curabitur sit amet iaculis dolor. Donec
-        auctor hendrerit diam, non dictum sapien facilisis sit amet.</p>
-
-    <p>Etiam ex velit, iaculis eget ultricies vel, ullamcorper vitae metus. Curabitur mollis felis sed viverra rhoncus.
-        Aenean urna mauris, commodo consectetur mauris a, scelerisque lobortis ipsum. Sed placerat tortor in turpis
-        vehicula, quis laoreet nisl aliquam. Sed venenatis varius tellus aliquet tincidunt. Phasellus nibh velit,
-        consequat vel ornare vel, molestie a felis. Orci varius natoque penatibus et magnis dis parturient montes,
-        nascetur ridiculus mus. Nulla vulputate sagittis tortor, sit amet pretium ipsum hendrerit nec. Mauris sit amet
-        massa euismod, vehicula ipsum sed, dictum lacus. Proin vulputate porttitor turpis ac lobortis. Vestibulum vel
-        arcu et dolor gravida cursus at ac libero. Cras laoreet tortor et consequat suscipit. Aliquam in quam metus.
-        Duis sed lobortis felis.</p>
-
-    <p>Cras elit magna, sollicitudin sit amet mi ac, pellentesque interdum neque. Sed nisl libero, dignissim vel auctor
-        vitae, efficitur a sem. Praesent molestie lobortis justo rutrum ultrices. Integer quis euismod nisi. Sed ac
-        dapibus purus. Maecenas sed justo in lectus pharetra congue ac vel eros. Nulla velit augue, condimentum nec nisi
-        in, ornare venenatis diam. Sed sollicitudin cursus dapibus.</p>
-
-    <p>Cras malesuada hendrerit facilisis. In volutpat metus urna, id tempus risus posuere eget. Nam et ex eget metus
-        tempor feugiat ac vitae quam. Nulla a cursus ligula, finibus ullamcorper turpis. Etiam sed elit a ligula
-        imperdiet sollicitudin. Suspendisse odio quam, blandit volutpat enim ac, commodo scelerisque urna. Nam
-        condimentum interdum lacinia. Vivamus sodales, tortor sit amet euismod consectetur, est urna hendrerit enim, non
-        accumsan nisl mi et dui. Praesent interdum gravida diam, a egestas urna placerat sit amet. Vivamus nisl nisi,
-        scelerisque eu purus nec, auctor pulvinar velit.</p>
-
-    <p>Duis mollis venenatis lorem vitae condimentum. Sed et libero hendrerit, tempor urna sit amet, mollis justo. Nulla
-        tellus neque, consequat eu metus a, volutpat mattis magna. Aenean id porttitor diam, ultricies venenatis tellus.
-        Ut lacinia semper porttitor. Phasellus a suscipit sem. Nam ut ligula arcu.</p>
+    <div class="mt-4">
+        <a href="projetos.php" class="btn btn-secondary">← Voltar para Projetos</a>
+    </div>
 </section>
 
-
-
-<?php include 'footer.php'; ?>
+<?php 
+if (isset($conn)) { $conn->close(); }
+include 'footer.php'; 
+?>
