@@ -1,5 +1,5 @@
-<?php 
-include 'header.php'; 
+<?php
+include 'header.php';
 include 'db-projetos.php'; // conexão com o banco
 ?>
 
@@ -25,7 +25,9 @@ if (!$projeto) {
             <h1>Projeto Não Encontrado</h1>
             <p>O ID do projeto é inválido ou ele não existe mais.</p>
           </div>';
-    if (isset($conn)) { $conn->close(); }
+    if (isset($conn)) {
+        $conn->close();
+    }
     include 'footer.php';
     exit;
 }
@@ -40,7 +42,7 @@ if (!$projeto) {
 
 <section class="container my-5">
     <h2 class="section-title">CONHEÇA O NOSSO PROJETO</h2>
-    
+
     <div class="row project-images mb-4">
         <?php if (!empty($projeto['imagem'])): ?>
             <img style="height: 100%;" src="<?php echo htmlspecialchars($projeto['imagem']); ?>" alt="Imagem do projeto <?php echo htmlspecialchars($projeto['nome_projeto']); ?>" class="img-fluid rounded">
@@ -52,7 +54,7 @@ if (!$projeto) {
     <ul class="list-unstyled project-details">
         <li><strong>Responsável:</strong> <?php echo htmlspecialchars($projeto['responsavel']); ?></li>
         <li><strong>Categoria:</strong> <?php echo htmlspecialchars($projeto['categoria']); ?></li>
-        <li><strong>Objetivo:</strong> 
+        <li><strong>Objetivo:</strong>
             R$ <?php echo number_format((float)$projeto['valor_pretendido'], 3, '.', '.'); ?>
         </li>
     </ul>
@@ -61,12 +63,36 @@ if (!$projeto) {
         <?php echo nl2br(htmlspecialchars($projeto['descricao'])); ?>
     </div>
 
+    <div>
+        <h4 style="margin-top: 20px; margin-bottom:20px;">Entre em contato através das Redes Sociais:</h4>
+
+        <?php if (!empty($projeto['instagram'])): ?>
+            <a href="<?php echo htmlspecialchars($projeto['instagram']); ?>" target="_blank">
+                <i class="fa-brands fa-instagram" style="margin-left: 20px;"></i> Instagram
+            </a>
+        <?php endif; ?>
+
+        <?php if (!empty($projeto['facebook'])): ?>
+            <a href="<?php echo htmlspecialchars($projeto['facebook']); ?>" target="_blank">
+                <i class="fa-brands fa-whatsapp" style="margin-left: 20px;"></i> WhatsApp
+            </a>
+        <?php endif; ?>
+
+        <?php if (!empty($projeto['linkedin'])): ?>
+            <a href="<?php echo htmlspecialchars($projeto['linkedin']); ?>" target="_blank">
+                <i class="fa-brands fa-linkedin-in" style="margin-left: 20px;"></i> LinkedIn
+            </a>
+        <?php endif; ?>
+    </div>
+
     <div class="mt-4">
         <a href="projetos.php" class="btn btn-secondary">← Voltar para Projetos</a>
     </div>
 </section>
 
-<?php 
-if (isset($conn)) { $conn->close(); }
-include 'footer.php'; 
+<?php
+if (isset($conn)) {
+    $conn->close();
+}
+include 'footer.php';
 ?>

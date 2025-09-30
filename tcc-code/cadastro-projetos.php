@@ -221,15 +221,15 @@
             </div>
             <div class="col-md-3">
                 <label for="inputInstagram" class="form-label">Coloque aqui seu Instagram</label>
-                <input type="text" class="form-control" name="instagram" id="inputInstagram" placeholder="Instagram" required>
+                <input type="text" class="form-control" name="instagram" id="inputInstagram" placeholder="Link Instagram" required>
             </div>
             <div class="col-md-3">
                 <label for="inputFacebook" class="form-label">Coloque aqui seu WhatsApp</label>
-                <input type="text" class="form-control" name="facebook" id="inputFacebook" placeholder="WhatsApp" required>
+                <input type="text" class="form-control" name="facebook" id="inputFacebook" placeholder="Link WhatsApp" required>
             </div>
             <div class="col-md-3">
                 <label for="inputLinkedIn" class="form-label">Coloque aqui seu LinkedIn</label>
-                <input type="text" class="form-control" name="linkedin" id="inputLinkedIn" placeholder="LinkedIn" required>
+                <input type="text" class="form-control" name="linkedin" id="inputLinkedIn" placeholder="Link LinkedIn" required>
             </div>
             <div class="col-md-3">
                 <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Cadastrar</button>
@@ -320,63 +320,5 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById('uploadForm');
-    const modalErro = new bootstrap.Modal(document.getElementById('modalErro'));
-    const erroMsg = document.getElementById('erro_msg_detalhada');
-
-    const camposObrigatorios = [
-        {id: 'inputNomeProjeto', nome: 'Nome do Projeto'},
-        {id: 'inputResponsavel', nome: 'Nome do Responsável'},
-        {id: 'inputPassword', nome: 'Senha'},
-        {id: 'inputRua', nome: 'Rua'},
-        {id: 'inputNum', nome: 'Número'},
-        {id: 'inputCEP', nome: 'CEP'},
-        {id: 'inputCidade', nome: 'Cidade'},
-        {id: 'inputState', nome: 'Estado'},
-        {id: 'inputCategoria', nome: 'Categoria'},
-        {id: 'inputFinanciamento', nome: 'Tipo de Financiamento'},
-        {id: 'inputValor', nome: 'Valor Pretendido'},
-        {id: 'floatingTextarea', nome: 'Descrição do Projeto'},
-        {id: 'imagem', nome: 'Imagem do Projeto'},
-        {id: 'instagram', nome: 'Instagram'},
-        {id: 'facebook', nome: 'WhatsApp'},
-        {id: 'linkedin', nome: 'Linkedin'}
-    ];
-
-    form.addEventListener('submit', function(event) {
-        event.preventDefault(); // evita envio enquanto valida
-        let erros = [];
-
-        camposObrigatorios.forEach(function(campoInfo) {
-            const campo = document.getElementById(campoInfo.id);
-            let preenchido = true;
-
-            if (campo.tagName === 'SELECT') {
-                preenchido = campo.value.trim() !== '';
-            } else if (campo.type === 'file') {
-                preenchido = campo.files.length > 0;
-            } else {
-                preenchido = campo.value.trim() !== '';
-            }
-
-            if (!preenchido) {
-                erros.push(campoInfo.nome);
-                campo.classList.add('is-invalid');
-            } else {
-                campo.classList.remove('is-invalid');
-            }
-        });
-
-        if (erros.length > 0) {
-            // Monta a mensagem de erro
-            erroMsg.innerHTML = `<strong>Por favor, preencha os seguintes campos obrigatórios:</strong><ul><li>${erros.join('</li><li>')}</li></ul>`;
-            modalErro.show();
-        } else {
-            // Se tudo preenchido, envia o formulário
-            form.submit();
-        }
-    });
-});
 
 </script>
