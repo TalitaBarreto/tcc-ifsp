@@ -21,7 +21,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link colorLinkMenu" href="home.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link colorLinkMenu" href="porque.php">Por quê?</a></li>
-                    <li class="nav-item"><a class="nav-link colorLinkMenu" href="projetos.php">Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link colorLinkMenu" href="projetos-principal.php">Projetos</a></li>
                     <li class="nav-item"><a class="nav-link colorLinkMenu" href="cadastro-projetos.php">Cadastro Projetos</a></li>
                     <li class="nav-item"><a class="nav-link colorLinkMenu" href="cadastro-investidores.php">Cadastre-se Investidores</a></li>
                     <li class="nav-item"><a class="nav-link colorLinkMenu" href="login.php">Login</a></li>

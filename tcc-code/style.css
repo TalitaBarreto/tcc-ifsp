@@ -309,3 +309,28 @@ a:hover{
   text-align: right;
   margin: 0;
 }
+
+.tituloDescricao{
+    text-align: center;
+    font-size: 50px;
+}
+.subDescricao{
+    text-align: center;
+    font-size: 30px;
+}
+
+.imagemDescricao{
+    height: 80%;    
+    border-radius: 15px;
+    margin: auto;
+    display: block;
+}
+
+.listaDescricao{
+    margin-top: -120px;
+    list-style: none;
+}
+
+.botaoDescricao{
+    margin-top: 20px;
+}
