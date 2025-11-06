@@ -1,160 +1,126 @@
 <?php
 
-include 'db-projetos.php'; // conexão com o banco
+$servername = "127.0.0.1";
+$username = "root";
+$password = "";
+$dbname = "conectando-ideias";
 
-// Verifica se o formulário foi enviado via POST
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Falha na conexão: " . $conn->connect_error);
+}
 
-    // Verifica se o ID foi enviado e é válido
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $id = isset($_POST['id']) ? (int)$_POST['id'] : 0;
     if ($id <= 0) {
-        die("ID do projeto inválido! Atualização não permitida.");
+        die("ID inválido. Atualização não permitida.");
     }
 
-    // Verifica se o projeto existe no banco
-    $check = $conn->prepare("SELECT id FROM projetos WHERE id=?");
-    $check->bind_param("i", $id);
-    $check->execute();
-    $check->store_result();
-    if ($check->num_rows === 0) {
-        die("Projeto não encontrado. Atualização impossível.");
+    // Pega os dados dos campos do formulário
+    $nome_projeto = trim($_POST['nome_projeto']);
+    $responsavel = trim($_POST['responsavel']);
+    $rua = trim($_POST['rua']);
+    $numero = trim($_POST['numero']);
+    $complemento = trim($_POST['complemento']);
+    $cep = trim($_POST['cep']);
+    $cidade = trim($_POST['cidade']);
+    $estado = trim($_POST['estado']);
+    $categoria = trim($_POST['categoria']);
+    $financiamento = trim($_POST['financiamento']);
+    $valor_pretendido = trim($_POST['valor_pretendido']);
+    $descricao = trim($_POST['descricao']);
+    $instagram = trim($_POST['instagram']);
+    $facebook = trim($_POST['facebook']);
+    $linkedin = trim($_POST['linkedin']);
+    $senha = trim($_POST['senha']);
+
+    // Busca o projeto atual
+    $stmt = $conn->prepare("SELECT imagem, senha FROM projetos WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
+    if ($resultado->num_rows === 0) {
+        die("Projeto não encontrado.");
     }
-    $check->close();
 
-    // Recebe os dados do formulário
-    $nome_projeto     = $_POST['nome_projeto'];
-    $responsavel      = $_POST['responsavel'];
-    $senha            = $_POST['senha'];
-    $rua              = $_POST['rua'];
-    $numero           = $_POST['numero'];
-    $complemento      = $_POST['complemento'];
-    $cep              = $_POST['cep'];
-    $cidade           = $_POST['cidade'];
-    $estado           = $_POST['estado'];
-    $categoria        = $_POST['categoria'];
-    $financiamento    = $_POST['financiamento'];
-    $valor_pretendido = $_POST['valor_pretendido'];
-    $descricao        = $_POST['descricao'];
-    $instagram        = $_POST['instagram'];
-    $facebook         = $_POST['facebook'];
-    $linkedin         = $_POST['linkedin'];
+    $projetoAtual = $resultado->fetch_assoc();
+    $imagemAtual = $projetoAtual['imagem'];
+    $senhaAtual = $projetoAtual['senha'];
 
-    // Verifica se existe uma nova imagem
-    $imagem_nova = $_FILES['imagem']['name'] ?? '';
-    $imagem_final = '';
+    // Upload da imagem (se houver nova)
+    $caminhoImagem = $imagemAtual;
+    if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+        $extensao = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
+        $nomeArquivo = uniqid() . '.' . $extensao;
+        $caminhoUpload = 'uploads/' . $nomeArquivo;
 
-    if (!empty($imagem_nova)) {
-        // Cria um nome único para a imagem
-        $imagem_final = uniqid() . '_' . basename($imagem_nova);
-        $destino = 'uploads/' . $imagem_final;
-
-        // Move a imagem para o diretório de uploads
-        if (!move_uploaded_file($_FILES['imagem']['tmp_name'], $destino)) {
-            die("Erro ao fazer upload da imagem.");
+        if (!is_dir('uploads')) {
+            mkdir('uploads', 0777, true);
         }
+
+        move_uploaded_file($_FILES['imagem']['tmp_name'], $caminhoUpload);
+        $caminhoImagem = $caminhoUpload;
     }
 
-    // Atualiza o registro no banco
-    if ($imagem_final) {
-        // Se uma imagem foi enviada, atualiza o campo imagem
-        $sql = "UPDATE projetos SET 
-                    nome_projeto=?, 
-                    responsavel=?, 
-                    senha=?, 
-                    rua=?, 
-                    numero=?, 
-                    complemento=?, 
-                    cep=?, 
-                    cidade=?, 
-                    estado=?, 
-                    categoria=?, 
-                    financiamento=?, 
-                    valor_pretendido=?, 
-                    descricao=?, 
-                    imagem=?, 
-                    instagram=?, 
-                    facebook=?, 
-                    linkedin=?
-                WHERE id=?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param(
-            "sssssssssssssssssi", // Bind dos parâmetros
-            $nome_projeto,
-            $responsavel,
-            $senha,
-            $rua,
-            $numero,
-            $complemento,
-            $cep,
-            $cidade,
-            $estado,
-            $categoria,
-            $financiamento,
-            $valor_pretendido,
-            $descricao,
-            $imagem_final,
-            $instagram,
-            $facebook,
-            $linkedin,
-            $id
-        );
-    } else {
-        // Se nenhuma imagem foi enviada, não atualiza o campo imagem
-        $sql = "UPDATE projetos SET 
-                    nome_projeto=?, 
-                    responsavel=?, 
-                    senha=?, 
-                    rua=?, 
-                    numero=?, 
-                    complemento=?, 
-                    cep=?, 
-                    cidade=?, 
-                    estado=?, 
-                    categoria=?, 
-                    financiamento=?, 
-                    valor_pretendido=?, 
-                    descricao=?, 
-                    instagram=?, 
-                    facebook=?, 
-                    linkedin=?
-                WHERE id=?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param(
-            "ssssssssssssssssi", // Bind dos parâmetros sem imagem
-            $nome_projeto,
-            $responsavel,
-            $senha,
-            $rua,
-            $numero,
-            $complemento,
-            $cep,
-            $cidade,
-            $estado,
-            $categoria,
-            $financiamento,
-            $valor_pretendido,
-            $descricao,
-            $instagram,
-            $facebook,
-            $linkedin,
-            $id
-        );
-    }
+    // Atualiza a senha apenas se foi alterada
+    $senhaHash = !empty($senha) ? password_hash($senha, PASSWORD_DEFAULT) : $senhaAtual;
 
-    // Verifica se a execução do UPDATE foi bem-sucedida
+    // Atualização
+    $sql = "UPDATE projetos SET 
+                nome_projeto = ?, 
+                responsavel = ?, 
+                senha = ?, 
+                rua = ?, 
+                numero = ?, 
+                complemento = ?, 
+                cep = ?, 
+                cidade = ?, 
+                estado = ?, 
+                categoria = ?, 
+                financiamento = ?, 
+                valor_pretendido = ?, 
+                descricao = ?, 
+                imagem = ?, 
+                instagram = ?, 
+                facebook = ?, 
+                linkedin = ? 
+            WHERE id = ?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param(
+        "sssssssssssssssssi",
+        $nome_projeto,
+        $responsavel,
+        $senhaHash,
+        $rua,
+        $numero,
+        $complemento,
+        $cep,
+        $cidade,
+        $estado,
+        $categoria,
+        $financiamento,
+        $valor_pretendido,
+        $descricao,
+        $caminhoImagem,
+        $instagram,
+        $facebook,
+        $linkedin,
+        $id
+    );
+
     if ($stmt->execute()) {
-        // Redireciona para a página de sucesso
-        header("Location: atualizacao-projeto.php?id=$id&sucesso=1");
-        exit();
+        echo "<script>alert('Projeto atualizado com sucesso!'); window.location='home.php';</script>";
     } else {
-        // Se ocorreu algum erro, exibe a mensagem
-        echo "Erro ao atualizar: " . $stmt->error;
+        echo "<script>alert('Erro ao atualizar projeto: " . $stmt->error . "'); window.history.back();</script>";
     }
 
-    // Fecha as conexões
     $stmt->close();
     $conn->close();
+
 } else {
-    // Se o método não for POST, exibe mensagem de erro
-    die("Método inválido. Apenas POST é permitido.");
+    echo "Método inválido.";
 }
+?>

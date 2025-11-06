@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
-        // Substitua por password_verify se a senha estiver hash
+        
         if ($senha === $user['senha']) {
             $_SESSION['tipo'] = 'projeto';
             $_SESSION['user_id'] = $user['id'];

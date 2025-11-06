@@ -50,16 +50,19 @@ if (!$projeto) {
                 <img src="img/placeholder.jpg" alt="Sem imagem disponível">
             <?php endif; ?>
         </div>
-        
+
         <div class="col-md-12">
-            <ul class="listaDescricao">
-                <li><strong>Responsável:</strong> <?php echo htmlspecialchars($projeto['responsavel']); ?></li>
-                <li><strong>Categoria:</strong> <?php echo htmlspecialchars($projeto['categoria']); ?></li>
-                <li><strong>Objetivo:</strong>
-                    R$ <?php echo $projeto['valor_pretendido']; ?>
-                </li>
-            </ul>
-        </div>              
+            <div class="cardInformacaoDescricao">
+                <ul class="listaDescricao">
+                    <li><strong>Responsável:</strong> <?php echo htmlspecialchars($projeto['responsavel']); ?></li>
+                    <li><strong>Categoria:</strong> <?php echo htmlspecialchars($projeto['categoria']); ?></li>
+                    <li><strong>Objetivo:</strong>
+                        R$ <?php echo $projeto['valor_pretendido']; ?>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
 
         <div class="col-md-12">
             <?php echo nl2br(htmlspecialchars($projeto['descricao'])); ?>

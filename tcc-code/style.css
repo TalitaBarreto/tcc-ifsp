@@ -245,8 +245,7 @@ a:hover{
 }
 
 .imgProjeto{
-    height: auto;
-    width: 50%;
+    width: 100px;
     margin: 60px 60px 30px 60px;
 }
 
@@ -288,10 +287,9 @@ a:hover{
   background: #ccc;
 }
 
-/* Call to action */
 .cta-phone {
   background: #eee;
-  padding: 20px 0; /* só padding vertical */
+  padding: 20px 0;
 }
 .cta-phone .phone-box {
   background: white;
@@ -301,9 +299,11 @@ a:hover{
   gap: 10px;
   border-radius: 5px;
 }
+
 .cta-phone .phone-box i {
   font-size: 24px;
 }
+
 .cta-phone h3 {
   font-weight: 700;
   text-align: right;
@@ -314,21 +314,32 @@ a:hover{
     text-align: center;
     font-size: 50px;
 }
+
 .subDescricao{
     text-align: center;
     font-size: 30px;
 }
 
 .imagemDescricao{
-    height: 80%;    
+    width: 100%;   
     border-radius: 15px;
     margin: auto;
     display: block;
 }
 
+.cardInformacaoDescricao{
+    height: 120px;
+    width: 300px;
+    margin-top: -150px;
+    position: absolute;
+    background-color: #e5e5e9;
+    border-radius: 0% 15px 15px 0%;
+
+}
+
 .listaDescricao{
-    margin-top: -120px;
-    list-style: none;
+    margin-top: 20px;
+    list-style: none;    
 }
 
 .botaoDescricao{
