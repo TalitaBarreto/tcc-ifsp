@@ -59,7 +59,7 @@
                     <div class="cardAtencao text-center">
                         <h3>Faça seu cadastro agora mesmo e ajude a tirar essas ideias do papel</h3>
                         <a href="cadastro-investidores.php" class="btn btn-primary mt-3">Cadastre-se</a>
-                        <a href="projetos.php" class="btn btn-secondary mt-3">Conheça nossos projetos</a>
+                        <a href="projetos-principal.php" class="btn btn-secondary mt-3">Conheça nossos projetos</a>
                     </div>
                 </div>
             </div>

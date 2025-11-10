@@ -116,7 +116,7 @@ function limit_words($string, $word_limit = 20) {
                 <div class="cardAtencao text-center">
                     <h2 style="margin: 0; font-size: 24px; color: #333;">Conheça mais sobre os nossos projetos!</h2>
                     <p style="margin: 10px 0; color: #444;">Iniciativas que fazem a diferença. Descubra como você pode participar.</p>
-                    <a href="projetos.php" class="btn btn-primary">Ver Projetos</a>
+                    <a href="projetos-principal.php" class="btn btn-primary">Ver Projetos</a>
                 </div>
             </div>
         </div>
