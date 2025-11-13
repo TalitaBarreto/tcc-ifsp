@@ -345,3 +345,50 @@ a:hover{
 .botaoDescricao{
     margin-top: 20px;
 }
+
+.card-login{
+    background-color: #F5F5F5;;
+    height: 300px;
+    padding: 20px;
+}
+
+@media (max-width: 1250px) {
+  section{
+    margin-bottom: 20px;
+  }
+  .card{
+    margin-bottom: 20px;
+  }
+  img{
+    width: 100% !important;
+    margin: 0;
+  }
+  .imgProjeto{
+    width: 80%;
+    margin: 0;
+  }
+  .btn{
+    margin-bottom: 10px;
+  }
+  .secaoFraseDestaque{
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .fraseDestaque{
+    margin: 0;
+  }
+  .tamanhoSlides{
+    height: 400px !important;
+  }
+  .logo{
+    height: auto;
+  }
+  .projeto-card{
+    width: 370px;    
+    margin: auto;
+  }
+  .cardPessoa{
+    margin-bottom: 10px;
+  }
+}

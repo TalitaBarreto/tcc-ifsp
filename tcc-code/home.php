@@ -1,5 +1,5 @@
 <?php include 'header.php'; 
-include 'db.php'; 
+include 'db-projetos.php'; 
 
 function limit_words($string, $word_limit = 20) {
     $words = explode(" ", strip_tags($string));

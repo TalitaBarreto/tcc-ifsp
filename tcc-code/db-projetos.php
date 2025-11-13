@@ -4,18 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Conexão com o banco
-$servername = "127.0.0.1";
-$username = "root";
-$password = "";
-$dbname = "conectando-ideias";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verifica conexão
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
+include 'db.php';
 
 // Processa somente POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

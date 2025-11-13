@@ -1,17 +1,7 @@
 <?php
 session_start();
 include 'header.php';
-
-$servername = "127.0.0.1";
-$username   = "root";
-$password   = "";
-$dbname     = "conectando-ideias";
-
-// Conexão
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
+include 'db.php';
 
 // Processa login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -35,11 +25,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             header("Location: login_projetos.php?erro=Senha incorreta");
+            echo "<script>alert('Desculpa!! Senha incorreta'); window.location='login.php';</script>";
             exit();
         }
     } else {
         header("Location: login_projetos.php?erro=Usuário não encontrado");
+        echo "<script>alert('Desculpa!! Seu usuário está incorreta'); window.location='login.php';</script>";
         exit();
     }
+}else{
+    echo "<script>alert('Usuário não encontrado'); window.location='login.php';</script>";
+    exit();
 }
 ?>

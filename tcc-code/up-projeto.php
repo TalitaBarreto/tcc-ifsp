@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Atualiza a senha apenas se foi alterada
-    $senhaHash = !empty($senha) ? password_hash($senha, PASSWORD_DEFAULT) : $senhaAtual;
+    $senhaFinal = !empty($senha) ? $senha : $senhaAtual;
 
     // Atualização
     $sql = "UPDATE projetos SET 
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         "sssssssssssssssssi",
         $nome_projeto,
         $responsavel,
-        $senhaHash,
+        $senhaFinal,
         $rua,
         $numero,
         $complemento,

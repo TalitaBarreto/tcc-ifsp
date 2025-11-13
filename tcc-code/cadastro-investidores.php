@@ -43,7 +43,7 @@
         </div>
     </section>
     <section class="row espaco-entre-secao" id="cadastroInvestidor">
-        <form class="row g-3 formulario" id="uploadForm" action="db.php" method="post">
+        <form class="row g-3 formulario" id="uploadForm" action="db-investidores.php" method="post">
             <div class="col-md-12">
                 <h3>Cadastro de Investidores</h3>
             </div>

@@ -1,17 +1,8 @@
 <?php
 session_start();
 include 'header.php';
+include 'db.php';
 
-$servername = "127.0.0.1";
-$username   = "root";
-$password   = "";
-$dbname     = "conectando-ideias";
-
-// Conexão
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
 
 // Processa login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -25,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
-        // Substitua por password_verify se a senha estiver hash
+        
         if ($senha === $user['senha']) {
             $_SESSION['tipo'] = 'investidor';
             $_SESSION['user_id'] = $user['id'];
@@ -34,12 +25,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: projetos.php");
             exit();
         } else {
-            header("Location: login_investidores.php?erro=Senha incorreta");
+            header("Location: login_investidores.php?erro=Senha incorreta");           
+            echo "<script>alert('Desculpa!! Sua senha está incorreta'); window.location='login.php';</script>";
             exit();
         }
     } else {
         header("Location: login_investidores.php?erro=Usuário não encontrado");
+        echo "<script>alert('Desculpa!! Seu email está incorreto'); window.location='login.php';</script>";
         exit();
     }
+}else{
+    echo "<script>alert('Usuário não encontrado'); window.location='login.php';</script>";
+    exit();
 }
 ?>
