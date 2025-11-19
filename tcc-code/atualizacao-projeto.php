@@ -1,6 +1,4 @@
 <?php
-
-var_dump($_POST);
 include 'header.php';
 include 'db-projetos.php'; 
 

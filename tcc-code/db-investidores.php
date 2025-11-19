@@ -1,5 +1,4 @@
 <?php
-
 include 'db.php';
 
 // Verificar a conexão
@@ -58,8 +57,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// 6. Fechar a conexão com o banco de dados
-// --- ALTERAÇÃO: Este fechamento foi removido, pois a conexão já é fechada dentro dos blocos `if/else`.
-// $conn->close(); 
 
 ?>
